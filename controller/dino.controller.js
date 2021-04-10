@@ -1,12 +1,13 @@
 const db = require("../models/setup");
 const Dino = db.dino;
 
+
 exports.create = (req, res) => {
     if (!req.body.especie) {
         res.status(400).send({ message: "O corpo da peticion non pode estar baleiro!" });
         return;
     }
-    console.log("PROBA",req.body.especie);
+    console.log("Create: ",req.body.especie);
 
     const dino = new Dino({
         especie: req.body.especie,
@@ -33,6 +34,7 @@ exports.create = (req, res) => {
         });
 };
 
+
 exports.findAll = (req, res) => {
     const title = req.query.title;
     var condition = title ? { title: {$regex: new RegExp(title), $options: "i"}}:{};
@@ -47,6 +49,7 @@ exports.findAll = (req, res) => {
             });
         });
 };
+
 
 exports.findOne = (req, res) => {
     console.log("find One");
@@ -63,6 +66,7 @@ Dino.findById(id)
             .send({message:"Error atopando dinosaurios con id="+id});
     });
 };
+
 
 exports.update = (req, res) => {
     if (!req.body) {
@@ -89,6 +93,7 @@ exports.update = (req, res) => {
         });
 };
 
+
 exports.delete = (req, res) => {
 const id = req.params.id;
 Dino.findByIdAndRemove(id)
@@ -108,21 +113,9 @@ Dino.findByIdAndRemove(id)
     });
 });
 };
+
+
 exports.deleteAll = (req, res) => {
 
 };
 
-
-
-
-exports.findAllPublished = (req, res) => {
-
-};
-
-exports.findById = (req, res) => {
-    Dino.findById(req.params.id, function (err, dino) {
-        if(err) return res.send(500).send(err.message);
-        console.log('GET /dino/' + req.params.id);
-        res.status(200).json(dino);
-    });
-};

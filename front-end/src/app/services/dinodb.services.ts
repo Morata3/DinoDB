@@ -11,14 +11,14 @@ export class dinodbServices {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get(baseUrl);
+    return this.http.get(baseUrl,{observe: 'body', responseType: 'json'});
   }
 
   get(id: string) {
     return this.http.get(`${baseUrl}/${id}`);
   }
 
-  create(data: json) {
+  create(data: string) {
     return this.http.post(baseUrl, data);
   }
 

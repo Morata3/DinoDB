@@ -1,17 +1,20 @@
-<div>
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">DinoDB</a>
-    <div class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a routerLink="tenda" class="nav-link">Tenda</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="carrito" class="nav-link">Carrito</a>
-      </li>
-    </div>
-  </nav>
+<mat-drawer-container class = "app-container">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button type="button" mat-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>DinoDB</span>
+      <span class ="spacer"></span>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
-  <div class="container mt-3">
+  <mat-drawer #drawer mode="side" class="app-sidenav">
+    <p>DinoDB</p>
+  </mat-drawer>
+
+  <div class = "app-content">
     <router-outlet></router-outlet>
   </div>
-</div>
+
+</mat-drawer-container>

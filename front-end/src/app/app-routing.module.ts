@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {MainPageComponent} from "./components/main-page/main-page.component";
+import {MainPageComponent} from "./components/main-page-admin/main-page.component";
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full'},
-  { path: 'main', component: MainPageComponent },
+  { path: 'admin', component: MainPageComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    HttpClientModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
