@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import {MatGridListModule} from '@angular/material/grid-list'; 
 const baseUrl = 'http://localhost:8080/api/dino';
 
 @Injectable({
@@ -22,16 +22,17 @@ export class dinodbServices {
     return this.http.post(baseUrl, data);
   }
 
-/*  update(id, data) {
+ update(id:string, data:string) {
     return this.http.put(`${baseUrl}/${id}`, data);
   }
 
-  delete(id) {
+  delete(id:string) {
     return this.http.delete(`${baseUrl}/${id}`);
   }
 
 
-  findBySpecies(title) {
+  findBySpecies(title:string) {
     return this.http.get(`${baseUrl}?title=${title}`);
-  }*/
+  }
+  
 }
