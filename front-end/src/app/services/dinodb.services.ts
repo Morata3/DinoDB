@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {MatGridListModule} from '@angular/material/grid-list'; 
+
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {DinosaurData} from "../components/admin/main-page.component";
+
 const baseUrl = 'http://localhost:8080/api/dino';
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class dinodbServices {
 
   constructor(private http: HttpClient) { }
@@ -18,21 +22,19 @@ export class dinodbServices {
     return this.http.get(`${baseUrl}/${id}`);
   }
 
-  create(data: string) {
-    return this.http.post(baseUrl, data);
+  create(data: DinosaurData) {
+    return this.http.post(baseUrl, data, {headers: {'Content-Type': 'application/json'}})
   }
 
- update(id:string, data:string) {
+  update(data: DinosaurData,  id:string) {
     return this.http.put(`${baseUrl}/${id}`, data);
   }
 
-  delete(id:string) {
+  delete(id: string) {
     return this.http.delete(`${baseUrl}/${id}`);
   }
 
-
-  findBySpecies(title:string) {
-    return this.http.get(`${baseUrl}?title=${title}`);
-  }
-  
+  // findBySpecies(nombre:String) {
+  //   return this.http.get(`${baseUrl}?title=${title}`);
+  // }
 }

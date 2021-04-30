@@ -1,0 +1,53 @@
+<mat-drawer-container class="admin-container">
+  <div class="admin-layout">
+      <div class="button-create">
+        <button mat-fab color="primary" aria-label="Create new element">
+          <mat-icon (click)="openDialogCreate()">add</mat-icon>
+        </button>
+      </div>
+
+      <div>
+        <mat-card-title>
+          Lista de dinosaurios
+        </mat-card-title>
+        <mat-nav-list class="dino-list-card"
+            *ngFor="let dino of dinosaurList">
+          <mat-card class="dino-card">
+            <mat-card-header>
+              <mat-card-title>{{dino.especie}}</mat-card-title>
+              <mat-card-subtitle>{{dino.tipo}}</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+              <span>Dinosaurio que habitaba en {{dino.habitat}}</span>
+              <mat-accordion>
+
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Características
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <mat-list role="list">
+                    <mat-list-item role="listitem">Altura: {{dino.altura}} metros</mat-list-item>
+                    <mat-list-item role="listitem">Peso: {{dino.peso}} kg</mat-list-item>
+                    <mat-list-item role="listitem">Vida: {{dino.vida}} años</mat-list-item>
+                    <mat-list-item role="listitem">Cantidad: {{dino.cantidad}} unidades</mat-list-item>
+                    <mat-list-item role="listitem">Precio: {{dino.precio}} €</mat-list-item>
+                  </mat-list>
+
+                </mat-expansion-panel>
+
+              </mat-accordion>
+            </mat-card-content>
+
+            <mat-card-actions>
+              <button mat-button (click)="openDialogEdit(dino, dino.id)">EDITAR</button>
+              <button mat-button (click)="delete(dino.id)">ELIMINAR</button>
+            </mat-card-actions>
+          </mat-card>
+        </mat-nav-list>
+      </div>
+  </div>
+</mat-drawer-container>
+

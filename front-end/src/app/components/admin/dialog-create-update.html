@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>Nuevo dinosaurio</h1>
+<div mat-dialog-content>
+
+  <p>Especie</p>
+  <mat-form-field>
+    <mat-label>ej: Tyrannosaurus rex</mat-label>
+    <input matInput [(ngModel)]="data.especie">
+  </mat-form-field>
+
+  <p>Tipo</p>
+  <mat-form-field>
+    <mat-label>ej: terrestre</mat-label>
+    <input matInput [(ngModel)]="data.tipo">
+  </mat-form-field>
+
+  <p>Habitat</p>
+  <mat-form-field>
+    <mat-label>ej: planicies</mat-label>
+    <input matInput [(ngModel)]="data.habitat">
+  </mat-form-field>
+
+  <p>Altura</p>
+  <mat-form-field>
+    <mat-label>altura en metros</mat-label>
+    <input matInput [(ngModel)]="data.altura">
+  </mat-form-field>
+
+  <p>Peso</p>
+  <mat-form-field>
+    <mat-label>peso en toneladas</mat-label>
+    <input matInput [(ngModel)]="data.peso">
+  </mat-form-field>
+
+  <p>Vida</p>
+  <mat-form-field>
+    <mat-label>esperanza de vida</mat-label>
+    <input matInput [(ngModel)]="data.vida">
+  </mat-form-field>
+
+  <p>Cantidad</p>
+  <mat-form-field>
+    <mat-label>Cuantos deseas añadir?</mat-label>
+    <input matInput [(ngModel)]="data.cantidad">
+  </mat-form-field>
+
+  <p>Precio</p>
+  <mat-form-field>
+    <mat-label>precio en €</mat-label>
+    <input matInput [(ngModel)]="data.precio">
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Enviar</button>
+</div>
+
