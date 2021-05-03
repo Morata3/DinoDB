@@ -1,9 +1,27 @@
-<div *ngFor="let dino of dinosaurs">
-<h1 class="dino-info">{{dino.especie}}</h1>
+<mat-drawer-container class="admin-container">
 
-<p>Dinosaurio de tipo {{dino.tipo}} que se alimenta basicamente de {{dino.alimentacion}}. 
-    Habitaba en {{dino.habitat}} y medía de media {{dino.altura}} metros. Su esperanza de vida es de unos {{dino.vida}} años.</p>
-<p>Quedan {{dino.cantidad}} dinosaurios de este tipo.</p>
-<p class="precio"> {{dino.precio}} $</p>
-</div>
+  <mat-card class="admin-container">
+    <mat-card-title>{{dinosaur.especie}}</mat-card-title>
+      <mat-card class="dino-card">
+        <mat-card-header>
+          <mat-card-title>{{dinosaur.tipo}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <span>Dinosaurio de tipo {{dinosaur.tipo}} que habitaba en {{dinosaur.habitat}}</span><br>
+          <span>Quedan {{dinosaur.cantidad}} dinosaurios de este tipo.</span><br>
 
+          <mat-form-field>
+            <mat-label>Cuantos desa comprar?</mat-label>
+            <mat-select [disabled]="dinosaur.cantidad<=0">
+              <mat-option *ngFor="let cantidad of cantidad">{{cantidad}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button [disabled]="dinosaur.cantidad<=0" (click)="buy()">AÑADIR AL CARRITO</button>
+        </mat-card-actions>
+      </mat-card>
+  </mat-card>
+
+</mat-drawer-container>

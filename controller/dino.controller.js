@@ -52,7 +52,6 @@ exports.findAll = (req, res) => {
 
 
 exports.findOne = (req, res) => {
-    console.log("find One");
 const id = req.params.id;
 Dino.findById(id)
     .then(data => {
@@ -76,7 +75,6 @@ exports.update = (req, res) => {
     }
 
     const id = req.params.id;
-    //console.log("PROBA",req.body.id);
     Dino.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
         .then(data => {
             if (!data) {

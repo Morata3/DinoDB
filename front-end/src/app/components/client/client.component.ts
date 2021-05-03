@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { dinodbServices } from "src/app/services/dinodb.services";
 import { DinosaurData } from '../admin/main-page.component';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-client',
@@ -10,9 +11,12 @@ import { DinosaurData } from '../admin/main-page.component';
 export class ClientComponent implements OnInit {
   dinosaurs: any;
   dinosaur : DinosaurData
+  cantidad : Array<number>
 
+  @Input()
+    id: string;
 
-  constructor(private dinoService: dinodbServices) {
+  constructor(private dinoService: dinodbServices, private _activatedRoute: ActivatedRoute) {
     this.dinosaur = {
       especie: "",
       tipo: "",
@@ -23,29 +27,30 @@ export class ClientComponent implements OnInit {
       cantidad: 0,
       precio: 0.00,
     };
-   }
-
-  ngOnInit(): void {
-    this.getAllDinos()
+    this.id=""
+    this.cantidad = new Array<number>()
   }
 
-  getAllDinos(){
-    this.dinoService.getAll().subscribe(
-      data=>{
-        this.dinosaurs = data;
-        console.log(data)
-      },
-      error => {
-        console.log(error)
-      }
-    )
+  ngOnInit(): void {
+    this._activatedRoute.paramMap.subscribe(params => {
+      this.id = <string> params.get('id')
+      console.log("PARAMETRO: " + params.get('id'))
+    })
+    this.getOneDino(this.id)
+  }
+
+  buy(){
+    //Por implementar
   }
 
   getOneDino(id: string){
     this.dinoService.get(id).subscribe(
       data => {
-        console.log(data)
-        
+        console.log("Visualizando dinosaurio con id:" +data)
+        this.dinosaur = <DinosaurData> data;
+        for(var i = 1; i < this.dinosaur.cantidad+1; i ++){
+          this.cantidad.push(i)
+        }
       },
       error => {
         console.error(error)

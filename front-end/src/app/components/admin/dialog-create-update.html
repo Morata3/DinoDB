@@ -4,19 +4,19 @@
   <p>Especie</p>
   <mat-form-field>
     <mat-label>ej: Tyrannosaurus rex</mat-label>
-    <input matInput [(ngModel)]="data.especie">
+    <input matInput [(ngModel)]="data.especie" required>
   </mat-form-field>
 
   <p>Tipo</p>
   <mat-form-field>
     <mat-label>ej: terrestre</mat-label>
-    <input matInput [(ngModel)]="data.tipo">
+    <input matInput [(ngModel)]="data.tipo" required>
   </mat-form-field>
 
   <p>Habitat</p>
   <mat-form-field>
     <mat-label>ej: planicies</mat-label>
-    <input matInput [(ngModel)]="data.habitat">
+    <input matInput [(ngModel)]="data.habitat" required>
   </mat-form-field>
 
   <p>Altura</p>
@@ -46,7 +46,7 @@
   <p>Precio</p>
   <mat-form-field>
     <mat-label>precio en €</mat-label>
-    <input matInput [(ngModel)]="data.precio">
+    <input matInput [(ngModel)]="data.precio" required>
   </mat-form-field>
 
 </div>

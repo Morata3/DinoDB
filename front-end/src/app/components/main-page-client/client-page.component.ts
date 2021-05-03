@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { dinodbServices } from "src/app/services/dinodb.services";
-import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {Router} from '@angular/router';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 @Component({
   selector: 'app-content',
   templateUrl: './client-page.component.html',
@@ -10,7 +12,7 @@ export class ClientPageComponent implements OnInit {
 
   dinosaurs: any;
 
-  constructor(private dinoService: dinodbServices) { }
+  constructor(private dinoService: dinodbServices, private route:Router) { }
 
   ngOnInit(): void {
     this.getAllDinos()
@@ -27,6 +29,12 @@ export class ClientPageComponent implements OnInit {
           console.log(error)
         }
       )
+  }
+
+  goBuy(id: string){
+    this.route.navigate(['/client/aux/'+id]).then(r => {
+      console.log("Compradno dino con id:" + id)
+    });
   }
 
 }

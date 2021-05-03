@@ -1,21 +1,19 @@
 
 <mat-drawer-container class = "app-container">
   <mat-toolbar color="primary">
-    
+
     <mat-toolbar-row>
       <button type="button" mat-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
-       
+
       </button>
-     
+
       <span>DinoDB</span>
-      
-      <span class ="spacer"></span>
-      <mat-icon aria-hidden="false" aria-label="HomeIcon">home</mat-icon>
+
        <span class ="spacer"></span>
        <a mat-button href="/client/chart" target=""> <mat-icon aria-hidden="false" aria-label="CartIcon">add_shopping_cart</mat-icon></a>
-     
-      
+
+
     </mat-toolbar-row>
   </mat-toolbar>
 
@@ -26,15 +24,8 @@
         <a mat-button href="/client" target="">Client</a>
   </mat-drawer>
 
-
-    <h1>Benvido a DinoDB</h1> 
-    <h2>Lista de Dinosaurios</h2>
-   
   <div class = "app-content">
-    <router-outlet>
-     
-     <br>
-    </router-outlet>
+    <router-outlet></router-outlet>
   </div>
 <div class="end content">
 <mat-paginator [length]="100"

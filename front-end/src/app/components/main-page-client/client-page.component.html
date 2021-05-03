@@ -1,24 +1,28 @@
 <mat-drawer-container class="client-container">
 
-    <mat-card class="client-container">
-      <mat-card-title>
-        Lista de dinosaurios
-      </mat-card-title>
-      <mat-nav-list class="dino-list-card"
-          *ngFor="let dino of dinosaurs">
-        <mat-card class="dino-card">
-          <mat-card-header>
-            
-            <a mat-button href="/client/aux" target="" class="dino_name">{{dino.especie}}</a>
-          </mat-card-header>
-          <mat-card-content>
-            <span>Dinosaurio de tipo {{dino.tipo}} que habitaba en {{dino.habitat}}</span>
-            <p class="cantidad">{{dino.cantidad}} dinosaurios disponibles!!</p>
-            <p class="precio">Precio: {{dino.precio}}$</p>
-          </mat-card-content>
-        </mat-card>
-      </mat-nav-list>
+  <mat-card-title>
+    Dinosaurios en tienda
+  </mat-card-title>
+  <mat-nav-list class="dino-list-card"
+      *ngFor="let dino of dinosaurs">
+    <mat-card class="dino-card">
+      <mat-card-header>
+
+        <a mat-button href="/client/aux" target="" class="dino_name">{{dino.especie}}</a>
+      </mat-card-header>
+      <mat-card-content>
+        <span>Dinosaurio de tipo {{dino.tipo}} que habitaba en {{dino.habitat}}</span>
+        <p class="cantidad">{{dino.cantidad}} dinosaurios disponibles!!</p>
+        <p class="precio">Precio: {{dino.precio}}$</p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-button (click)="goBuy(dino.id)">VER PRODUCTO</button>
+      </mat-card-actions>
+
     </mat-card>
+  </mat-nav-list>
+
 </mat-drawer-container>
 
 

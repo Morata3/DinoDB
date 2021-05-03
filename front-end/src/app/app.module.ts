@@ -9,7 +9,9 @@ import { ClientPageComponent } from './components/main-page-client/client-page.c
 import { ChartPageComponent } from './components/chart-page/chart-page.component';
 import { MainPageComponent, DialogCreate } from './components/admin/main-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatPaginatorModule} from '@angular/material/paginator'
+import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatSelectModule } from '@angular/material/select';
+
 
  /* ANGULAR MATERIAL IMPORTS */
 import {MatCardModule} from '@angular/material/card';
@@ -53,7 +55,8 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule, } from "@angular/mat
     MatFormFieldModule,
     MatInputModule,
     MatGridListModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSelectModule
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },
