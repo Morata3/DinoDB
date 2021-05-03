@@ -10,5 +10,6 @@ db.mongoose = mongoose;
 mongoose.set('useFindAndModify', false);
 db.url = dbConfig.url;
 db.dino = require("./dino.model.js")(mongoose);
+db.shop = require("./shop.model.js")(mongoose)
 
 module.exports = db;

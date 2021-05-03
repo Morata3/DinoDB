@@ -9,7 +9,8 @@ module.exports = mongoose => {
             peso: Number,
             vida: Number,
             cantidad: Number,
-            precio: Number
+            precio: Number,
+            originalID: String
         },
         {timestamps: true}
     );
@@ -21,6 +22,5 @@ module.exports = mongoose => {
         return object;
     });
 
-    const Dino = mongoose.model("dino", schema);
-    return Dino;
+    return mongoose.model("shop", schema);
 };

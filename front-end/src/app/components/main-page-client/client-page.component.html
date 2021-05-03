@@ -7,8 +7,7 @@
       *ngFor="let dino of dinosaurs">
     <mat-card class="dino-card">
       <mat-card-header>
-
-        <a mat-button href="/client/aux" target="" class="dino_name">{{dino.especie}}</a>
+        <a class="dino_name">{{dino.especie}}</a>
       </mat-card-header>
       <mat-card-content>
         <span>Dinosaurio de tipo {{dino.tipo}} que habitaba en {{dino.habitat}}</span>

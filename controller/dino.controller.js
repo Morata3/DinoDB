@@ -34,10 +34,9 @@ exports.create = (req, res) => {
         });
 };
 
-
 exports.findAll = (req, res) => {
     const title = req.query.title;
-    var condition = title ? { title: {$regex: new RegExp(title), $options: "i"}}:{};
+    let condition = title ? { title: {$regex: new RegExp(title), $options: "i"}}:{};
     Dino.find(condition)
         .then(data => {
             res.send(data);

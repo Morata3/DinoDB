@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -56,13 +56,14 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule, } from "@angular/mat
     MatInputModule,
     MatGridListModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MatDialogRef, useValue: {} },
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
-
+    { provide: MainPageComponent }
   ],
   entryComponents: [DialogCreate],
   bootstrap: [AppComponent]

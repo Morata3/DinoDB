@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { dinodbServices } from "src/app/services/dinodb.services";
 import {Router} from '@angular/router';
-import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-content',

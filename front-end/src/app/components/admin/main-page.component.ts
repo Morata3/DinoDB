@@ -13,6 +13,18 @@ export interface DinosaurData {
   precio: number
 }
 
+export interface ShopData {
+  especie: string,
+  tipo: string,
+  habitat: string,
+  altura: number,
+  peso: number,
+  vida: number,
+  cantidad: number,
+  precio: number,
+  originalID: string
+}
+
 @Component({
   selector: 'app-content',
   templateUrl: './main-page.component.html',
