@@ -34,7 +34,4 @@ export class dinodbServices {
     return this.http.delete(`${baseUrl}/${id}`);
   }
 
-  // findBySpecies(nombre:String) {
-  //   return this.http.get(`${baseUrl}?title=${title}`);
-  // }
 }

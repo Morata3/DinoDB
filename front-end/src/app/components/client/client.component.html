@@ -1,1 +1,9 @@
-<p>client works!</p>
+<div *ngFor="let dino of dinosaurs">
+<h1 class="dino-info">{{dino.especie}}</h1>
+
+<p>Dinosaurio de tipo {{dino.tipo}} que se alimenta basicamente de {{dino.alimentacion}}. 
+    Habitaba en {{dino.habitat}} y medía de media {{dino.altura}} metros. Su esperanza de vida es de unos {{dino.vida}} años.</p>
+<p>Quedan {{dino.cantidad}} dinosaurios de este tipo.</p>
+<p class="precio"> {{dino.precio}} $</p>
+</div>
+

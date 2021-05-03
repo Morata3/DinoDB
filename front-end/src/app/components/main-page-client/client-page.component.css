@@ -5,3 +5,18 @@
   justify-content: center;
   padding-top: 10px;
 }
+
+.dino_name{
+  font-size: large;
+}
+
+.cantidad{
+  font-size: medium;
+  color: rgb(187, 12, 134);
+}
+
+.precio{
+  font-size: larger;
+  color: aquamarine;
+  font-style:oblique;
+}

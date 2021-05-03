@@ -17,7 +17,7 @@ const routes2: Routes = [
   { path: 'client', component: ClientPageComponent },
   { path: '', redirectTo: 'client/chart', pathMatch: 'full'},
   { path: 'client/chart', component: ChartPageComponent },
-  { path: 'client', component: ClientComponent },
+  { path: 'client/aux', component: ClientComponent },
 
 ];
 @NgModule({
