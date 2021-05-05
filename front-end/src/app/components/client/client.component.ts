@@ -4,6 +4,7 @@ import { DinosaurData, ShopData } from '../admin/main-page.component';
 import { ActivatedRoute } from "@angular/router";
 import { Router } from '@angular/router';
 import { MainPageComponent } from "../admin/main-page.component";
+import {MatSnackBar} from "@angular/material/snack-bar";
 import { FormControl, Validators } from "@angular/forms";
 
 @Component({
@@ -22,7 +23,7 @@ export class ClientComponent implements OnInit {
     id: string;
 
   constructor(private dinoService: dinodbServices, private _activatedRoute: ActivatedRoute,
-              private route: Router, public mainComponent: MainPageComponent) {
+              private route: Router, public mainComponent: MainPageComponent,private _snackBar: MatSnackBar) {
     this.dinosaur = {
       especie: "",
       tipo: "",
@@ -48,6 +49,13 @@ export class ClientComponent implements OnInit {
     this.numberOfDinos = new Array<number>()
   }
 
+
+  displaySnackBar(message: string) {
+    this._snackBar.open(message,'OK',{
+      duration: 5000,
+    });
+  }
+
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe(params => {
       this.id = <string> params.get('id')
@@ -67,7 +75,7 @@ export class ClientComponent implements OnInit {
 
     //Actualizamos el dinosaurio
     dino.cantidad = dino.cantidad - numberOfDinos;
-    this.mainComponent.update(dino,this.id);
+    this.mainComponent.update(dino,this.id,"Dinosaurio añadido al carrito con éxito");
     this.goBack()
   }
 

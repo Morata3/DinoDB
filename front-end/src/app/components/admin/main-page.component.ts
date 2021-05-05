@@ -1,5 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import { dinodbServices } from "src/app/services/dinodb.services";
+import {MatSnackBar} from "@angular/material/snack-bar";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 
 export interface DinosaurData {
@@ -36,7 +37,7 @@ export class MainPageComponent implements OnInit {
   dinosaur : DinosaurData;
 
   constructor(private dinoService: dinodbServices,
-      public dialog: MatDialog)
+      public dialog: MatDialog,private _snackBar:MatSnackBar)
   {
     this.dinosaur = {
       especie: "",
@@ -48,6 +49,11 @@ export class MainPageComponent implements OnInit {
       cantidad: 0,
       precio: 0.00,
     };
+  }
+  displaySnackBar(message: string) {
+    this._snackBar.open(message,'OK',{
+      duration: 5000,
+    });
   }
 
   ngOnInit(): void {
@@ -73,6 +79,7 @@ export class MainPageComponent implements OnInit {
         data=>{
           console.log(data)
           this.ngOnInit();
+          this.displaySnackBar("Dinosaurio añadido con éxito")
         },
         error => {
           console.error(error)
@@ -80,12 +87,13 @@ export class MainPageComponent implements OnInit {
       )
   }
 
-  update(dino: DinosaurData, id: string){
+  update(dino: DinosaurData, id: string,mensaje:string){
     this.dinoService.update(dino,id)
       .subscribe(
         data => {
           console.log(data)
           this.ngOnInit();
+          this.displaySnackBar(mensaje)
         },
         error => {
           console.error(error)
@@ -99,6 +107,7 @@ export class MainPageComponent implements OnInit {
         data => {
           console.log(data)
           this.ngOnInit();
+          this.displaySnackBar("Dinosaurio eliminado con éxito")
         },
         error => {
           console.error(error)
@@ -135,7 +144,7 @@ export class MainPageComponent implements OnInit {
     dialogUpdate.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if(result)
-        this.update(result, dinoId)
+        this.update(result, dinoId,"Dinosaurio actualizado con éxito")
       else console.log("Dialog empty")
     });
   }
