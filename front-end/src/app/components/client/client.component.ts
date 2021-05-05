@@ -44,7 +44,7 @@ export class ClientComponent implements OnInit {
       cantidad: 0,
       precio: 0.00,
       originalID: ""
-    }
+    };
     this.id=""
     this.numberOfDinos = new Array<number>()
   }
@@ -65,12 +65,11 @@ export class ClientComponent implements OnInit {
   }
 
   buy(dino: DinosaurData, numberOfDinos: number){
-    //Creamos el objeto de compra
+    //Creamos el objeto y lo añadimos a la base de datos
     this.setShopFromDino(dino);
     this.shop.cantidad = numberOfDinos;
     this.shop.originalID = this.id;
 
-    //Creamos la compra
     this.create(this.shop);
 
     //Actualizamos el dinosaurio
@@ -98,10 +97,6 @@ export class ClientComponent implements OnInit {
     this.route.navigate(['/client/'])
   }
 
-  goCart(){
-    this.route.navigate(['/client/chart'])
-  }
-
   setShopFromDino(dino: DinosaurData){
     this.shop.especie = dino.especie;
     this.shop.tipo = dino.tipo;
@@ -123,5 +118,19 @@ export class ClientComponent implements OnInit {
         }
       )
   }
+
+  update(purchase: ShopData, id: string){
+    this.dinoService.updatePurchase(purchase,id)
+      .subscribe(
+        data => {
+          console.log(data)
+          this.ngOnInit();
+        },
+        error => {
+          console.error(error)
+        }
+      )
+  }
+
 
 }

@@ -1,0 +1,15 @@
+.dino-detail-container{
+  height: auto;
+  width: auto;
+  align-content: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+.dino-layout{
+  display: flex;
+  flex: 1 1 auto;
+}
+.button-back{
+  padding-right: 8px;
+  padding-top: 28px;
+}

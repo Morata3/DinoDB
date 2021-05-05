@@ -27,6 +27,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule, } from "@angular/material/form-field";
+import { AdminDetailComponent } from './components/admin-detail/admin-detail.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule, } from "@angular/mat
     ChartPageComponent,
     MainPageComponent,
     ClientComponent,
-    DialogCreate
+    DialogCreate,
+    AdminDetailComponent
   ],
   imports: [
     BrowserModule,

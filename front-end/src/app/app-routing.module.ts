@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from "./components/admin/main-page.component";
+import {  AdminDetailComponent } from "./components/admin-detail/admin-detail.component";
 import { HttpClientModule } from '@angular/common/http';
 
 import {ClientPageComponent} from "./components/main-page-client/client-page.component";
@@ -10,6 +11,7 @@ import {ClientComponent} from "./components/client/client.component";
 const routes: Routes = [
   { path: '', redirectTo: 'admin', pathMatch: 'full'},
   { path: 'admin', component: MainPageComponent },
+  { path: 'admin/dino/:id', component: AdminDetailComponent },
 
 ];
 const routes2: Routes = [

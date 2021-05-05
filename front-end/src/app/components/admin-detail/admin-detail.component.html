@@ -1,0 +1,28 @@
+<mat-drawer-container class="dino-detail-container">
+
+  <div class="dino-layout">
+    <div class="button-back">
+      <button mat-fab color="primary" aria-label="Back">
+        <mat-icon (click)="goBack()">arrow_back</mat-icon>
+      </button>
+    </div>
+
+    <div>
+      <mat-card-title>{{dinosaur.especie}}</mat-card-title>
+      <mat-card class="dino-card">
+        <mat-card-header>
+          <mat-card-title>{{dinosaur.tipo}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <span>Esta especie habitaba en {{dinosaur.habitat}}</span><br>
+          <span>Solian medir unos {{dinosaur.altura}} metros de altura y pesar alrededor de {{dinosaur.peso}} kg.</span><br>
+          <span>Se estima que su esperanza de vida era {{dinosaur.vida}} años.</span><br>
+
+        </mat-card-content>
+        <mat-card-actions>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+</mat-drawer-container>

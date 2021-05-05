@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import { dinodbServices } from "src/app/services/dinodb.services";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {Router} from "@angular/router";
 
 export interface DinosaurData {
   especie: string,
@@ -37,7 +38,7 @@ export class MainPageComponent implements OnInit {
   dinosaur : DinosaurData;
 
   constructor(private dinoService: dinodbServices,
-      public dialog: MatDialog,private _snackBar:MatSnackBar)
+      public dialog: MatDialog,private _snackBar:MatSnackBar, private route: Router)
   {
     this.dinosaur = {
       especie: "",
@@ -146,6 +147,12 @@ export class MainPageComponent implements OnInit {
       if(result)
         this.update(result, dinoId,"Dinosaurio actualizado con éxito")
       else console.log("Dialog empty")
+    });
+  }
+
+  goDinoDetail(id: string){
+    this.route.navigate(['/admin/dino/' + id]).then(r => {
+      console.log("Visualizando dino con id:" + id)
     });
   }
 
