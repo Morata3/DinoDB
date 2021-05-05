@@ -1,7 +1,15 @@
-.admin-container{
+.chart-container{
   height: auto;
   width: auto;
   align-content: center;
   justify-content: center;
   padding-top: 10px;
+}
+.chart-layout{
+  display: flex;
+  flex: 1 1 auto;
+}
+.button-market{
+  padding-right: 8px;
+  padding-top: 28px;
 }

@@ -24,6 +24,7 @@ import { ClientComponent } from './components/client/client.component';
 import { MatInputModule } from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule, } from "@angular/material/form-field";
 
@@ -57,7 +58,8 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule, } from "@angular/mat
     MatGridListModule,
     MatExpansionModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },

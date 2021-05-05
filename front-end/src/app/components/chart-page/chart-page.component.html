@@ -1,28 +1,36 @@
-<mat-drawer-container class="admin-container">
+<mat-drawer-container class="chart-container">
+  <div class="chart-layout">
 
-    <mat-card class="admin-container">
-      <mat-card-title>
-        Lista de dinosaurios
-      </mat-card-title>
-      <mat-nav-list class="dino-list-card-SELECTED"
-          *ngFor="let purchase of shopList">
-        <mat-card class="dino-card">
-          <mat-card-header>
-            <mat-card-title>{{purchase.especie}}</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <span>Dinosaurio de tipo {{purchase.tipo}} que habitaba en {{purchase.habitat}}</span><br>
-            <span>Tes {{purchase.cantidad}} dinosaurios deste tipo na cesta</span>
-          </mat-card-content>
+    <div class="button-market">
+      <button mat-fab color="primary" aria-label="Create new element">
+        <mat-icon (click)="goMarket()">store</mat-icon>
+      </button>
+    </div>
 
-          <mat-card-actions>
-            <button mat-button (click)="delete(purchase.id)">ELIMINAR</button>
-          </mat-card-actions>
+    <div>
+    <mat-card-title>
+      Artículos añadidos al carrito
+    </mat-card-title>
+    <mat-nav-list class="dino-list-card-SELECTED"
+        *ngFor="let purchase of shopList">
+      <mat-card class="dino-card">
+        <mat-card-header>
+          <mat-card-title>{{purchase.especie}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <span>Dinosaurio de tipo {{purchase.tipo}} que habitaba en {{purchase.habitat}}</span><br>
+          <span>Tes {{purchase.cantidad}} dinosaurios deste tipo na cesta</span>
+        </mat-card-content>
 
-        </mat-card>
-      </mat-nav-list>
-    </mat-card>
+        <mat-card-actions>
+          <button mat-button (click)="delete(purchase.id, purchase)">ELIMINAR</button>
+        </mat-card-actions>
 
+      </mat-card>
+    </mat-nav-list>
+    </div>
+
+  </div>
 </mat-drawer-container>
 
 

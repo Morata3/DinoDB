@@ -72,7 +72,7 @@ export class MainPageComponent implements OnInit {
       .subscribe(
         data=>{
           console.log(data)
-          this.refresh()
+          this.ngOnInit();
         },
         error => {
           console.error(error)
@@ -85,7 +85,7 @@ export class MainPageComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data)
-          this.refresh()
+          this.ngOnInit();
         },
         error => {
           console.error(error)
@@ -98,7 +98,7 @@ export class MainPageComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data)
-          this.refresh()
+          this.ngOnInit();
         },
         error => {
           console.error(error)
@@ -138,11 +138,6 @@ export class MainPageComponent implements OnInit {
         this.update(result, dinoId)
       else console.log("Dialog empty")
     });
-  }
-
-  refresh(): void {
-    this.getAll()
-    window.location.reload();
   }
 
 }

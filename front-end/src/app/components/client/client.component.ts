@@ -68,12 +68,13 @@ export class ClientComponent implements OnInit {
     //Actualizamos el dinosaurio
     dino.cantidad = dino.cantidad - numberOfDinos;
     this.mainComponent.update(dino,this.id);
+    this.goBack()
   }
 
   getOneDino(id: string){
     this.dinoService.get(id).subscribe(
       data => {
-        console.log("Visualizando dinosaurio con id:" +data)
+        console.log("Visualizando dinosaurio con id:" + id)
         this.dinosaur = <DinosaurData> data;
         for(var i = 1; i < this.dinosaur.cantidad+1; i ++){
           this.numberOfDinos.push(i)

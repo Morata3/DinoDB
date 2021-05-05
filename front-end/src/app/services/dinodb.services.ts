@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {DinosaurData} from "../components/admin/main-page.component";
 import {ShopData} from "../components/admin/main-page.component";
 
 const baseUrl = 'http://localhost:8080/api/dino';
 const baseUrlShop = 'http://localhost:8080/api/dino/shop';
+const headers = new HttpHeaders()
+  .append('Access-Control-Allow-Origin', '*');
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +21,11 @@ export class dinodbServices {
 
   //Dino requests
   getAll() {
-    return this.http.get(baseUrl,{observe: 'body', responseType: 'json'});
+    return this.http.get(baseUrl,{observe: 'body', responseType: 'json', headers});
   }
 
   get(id: string) {
-    return this.http.get(`${baseUrl}/${id}`);
+    return this.http.get(`${baseUrl}/${id}`,{headers});
   }
 
   create(data: DinosaurData) {
@@ -39,7 +42,7 @@ export class dinodbServices {
 
   //Shop requests
   getAllPurchases(){
-    return this.http.get(baseUrlShop+"/find",{observe: 'body', responseType: 'json'});
+    return this.http.get(baseUrlShop+"/find",{observe: 'body', responseType: 'json', headers});
   }
 
   createPurchase(data: ShopData) {
