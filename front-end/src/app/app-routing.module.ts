@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from "./components/admin/main-page.component";
 import {  AdminDetailComponent } from "./components/admin-detail/admin-detail.component";
+//import {  AdminDetailByNameComponent } from "./components/admin-detail-by-name/admin-detail-ny-name.component";
 import { HttpClientModule } from '@angular/common/http';
+
 
 import {ClientPageComponent} from "./components/main-page-client/client-page.component";
 import {ChartPageComponent} from "./components/chart-page/chart-page.component";
@@ -12,6 +14,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'admin', pathMatch: 'full'},
   { path: 'admin', component: MainPageComponent },
   { path: 'admin/dino/:id', component: AdminDetailComponent },
+  //{ path: 'admin/dino/name/:string', component: AdminDetailByNameComponent },
 
 ];
 const routes2: Routes = [

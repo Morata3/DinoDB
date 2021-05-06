@@ -125,6 +125,7 @@ export class MainPageComponent implements OnInit {
       }
     });
 
+
     dialogCreate.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if(result)
@@ -154,6 +155,15 @@ export class MainPageComponent implements OnInit {
     this.route.navigate(['/admin/dino/' + id]).then(r => {
       console.log("Visualizando dino con id:" + id)
     });
+  }
+
+  findByName(nombre: string): void{
+    for(let i=0; i<3; i++){
+      if(this.dinosaurList[i].especie==nombre){
+        console.log(this.dinosaurList[i])
+        this.goDinoDetail(this.dinosaurList[i].id)
+      }
+    }
   }
 
 }

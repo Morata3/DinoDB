@@ -1,3 +1,11 @@
+<div>
+<mat-form-field>
+  <input matInput class="search-bar" type="search" placeholder="Buscar dino" aria-label="Search" #Especie>
+</mat-form-field>
+  <button mat-button color="primary" (click)="findByName(Especie.value)">Buscar</button>
+</div>
+
+
 <mat-drawer-container class="admin-container">
   <div class="admin-layout">
       <div class="button-create">

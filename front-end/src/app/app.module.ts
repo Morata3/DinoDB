@@ -28,6 +28,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule, } from "@angular/material/form-field";
 import { AdminDetailComponent } from './components/admin-detail/admin-detail.component';
+import { AdminDetailByNameComponent } from './components/admin-detail-by-name/admin-detail-by-name.component';
+import { DinoDetailByNameComponent } from './components/dino-detail-by-name/dino-detail-by-name.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { AdminDetailComponent } from './components/admin-detail/admin-detail.com
     MainPageComponent,
     ClientComponent,
     DialogCreate,
-    AdminDetailComponent
+    AdminDetailComponent,
+    AdminDetailByNameComponent,
+    DinoDetailByNameComponent
   ],
   imports: [
     BrowserModule,
